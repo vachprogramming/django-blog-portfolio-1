@@ -2,6 +2,7 @@
 
 A feature-rich blog application built with Django, demonstrating core web development principles including CRUD operations, user authentication, and a responsive frontend design.
 ---
+You can view the live project here: https://vachprogramming.pythonanywhere.com/
 
 ## Features
 
