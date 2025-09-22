@@ -1,0 +1,280 @@
+/* blog/static/css/main.css */
+
+/* 1. CSS Variables (Our Design System) */
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --surface-color: #ffffff;
+    --text-color: #212529;
+    --border-color: #dee2e6;
+    --font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --border-radius: 5px;
+    --box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* 2. A Simple CSS Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. Global Styles */
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 960px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button {
+    cursor: pointer;
+    padding: 10px 15px;
+    border: none;
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1rem;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* blog/static/css/main.css (additions) */
+
+/* 4. Header and Navigation */
+.site-header {
+    background-color: var(--surface-color);
+    box-shadow: var(--box-shadow);
+    padding: 10px 0;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.nav-links a {
+    margin-left: 15px;
+    font-size: 1rem;
+}
+
+.nav-toggle {
+    display: none; /* Hidden on desktop */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    height: 3px;
+    width: 25px;
+    background: var(--text-color);
+    margin-bottom: 4px;
+    border-radius: 2px;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: var(--surface-color);
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        box-shadow: var(--box-shadow);
+    }
+
+    .nav-links.active {
+        display: flex; /* Show the links when active */
+    }
+
+    .nav-links a {
+        margin: 10px 0;
+        padding: 10px;
+    }
+
+    .nav-toggle {
+        display: flex; /* Show hamburger on mobile */
+    }
+}
+
+/* blog/static/css/main.css (additions) */
+
+/* 5. Post Card (for post_list.html) */
+.post-card {
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: var(--box-shadow);
+    transition: transform 0.2s;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+}
+
+.post-card-title {
+    margin-bottom: 5px;
+    font-size: 1.75rem;
+}
+
+.post-card-meta {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.post-card-excerpt {
+    margin-bottom: 15px;
+}
+
+.post-card-read-more {
+    font-weight: bold;
+}
+
+/* blog/static/css/main.css (additions) */
+
+/* 6. Full Post and Comments (for post_detail.html) */
+.post-full {
+    background-color: var(--surface-color);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+.post-full-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.post-full-meta {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-bottom: 20px;
+}
+
+.post-full-content {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.comments-section {
+    margin-top: 40px;
+}
+
+.comment {
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.comment-meta {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+}
+
+/* blog/static/css/main.css (additions) */
+
+/* 7. Forms (for auth and CRUD pages) */
+.form-container {
+    background-color: var(--surface-color);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    max-width: 600px;
+    margin: 40px auto;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-container p {
+    margin-bottom: 10px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-container input[type="text"],
+.form-container input[type="password"],
+.form-container input[type="email"],
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+/* Style for CKEditor specifically */
+.django-ckeditor-widget {
+    width: 100%;
+}
+
+/* blog/static/css/main.css (additions) */
+
+/* 8. Pagination Styles */
+.pagination {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.pagination a {
+    color: var(--primary-color);
+    padding: 8px 12px;
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+    margin: 0 4px;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s;
+}
+
+.pagination a:hover {
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+}
+
+.pagination .page-current {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
